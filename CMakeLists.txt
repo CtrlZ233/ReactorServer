@@ -9,4 +9,9 @@ add_executable(ReactorServer main.cpp
         Connection.h
         mpsc.h
         EpollServer.cpp
-        EpollServer.h)
+        EpollServer.h
+        TcpServerApi.cpp
+        TcpServerApi.h
+        TcpServerSpi.h
+        PidAllocator.cpp
+        PidAllocator.h)

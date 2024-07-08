@@ -8,6 +8,7 @@
 #include <memory>
 #include <atomic>
 #include <string>
+#include <chrono>
 #include "mpsc.h"
 
 class SendMessage {
@@ -32,14 +33,20 @@ public:
 
     bool isClosed();
 
+    unsigned int getConnId() const {
+        return connId_;
+    }
+    
     Connection(const Connection &) = delete;
     Connection &operator=(const Connection &) = delete;
 
 private:
+    unsigned int connId_;
     int socketFd_;
     sockaddr_in remoteAddr_;
     std::atomic<bool> isClose_;
     std::shared_ptr<Container<SendMessage>> buffer_;
+    std::chrono::system_clock::time_point timeStamp_;
 };
 
 

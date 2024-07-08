@@ -18,7 +18,7 @@ public:
 
     EpollServer &operator=(const EpollServer &) = delete;
 
-    void registerConn(std::shared_ptr<Connection> conn);
+    void registerConn(int socketFd, std::shared_ptr<Connection> conn);
 
 //    void unregisterConn(std::shared_ptr<Connection> conn);
 private:
